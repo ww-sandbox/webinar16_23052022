@@ -2,34 +2,35 @@ package tests;
 
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import java.nio.channels.SelectableChannel;
-
-public class HomePageTests {
-    private WebDriver driver;
-
+public class HomePageTests extends BaseTest{
+//    private WebDriver driver;
+//
+//    @BeforeClass
+//    public void setUp(){
+//        driver = new FirefoxDriver();
+//        driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+//        driver.manage().window().maximize();
+//        driver.get("http://sampleshop.inqa.pl/");
+//    }
+////    Metoda uruchamiana przed rozpoczęciem wykonywania testów w danej klasie. Zawiera wstępną konfigurację drivera
+////    oraz otwieranie strony głównej
+//
+//    @AfterClass
+//    public void tearDown(){
+//        driver.quit();
+//    }
+////    Metoda zamykająca okno przeglądarki po wszystkich testach w klasie
     @BeforeClass
-    public void setUp(){
-        driver = new FirefoxDriver();
-        driver.manage().window().maximize();
+    public void openHomePage(){
         driver.get("http://sampleshop.inqa.pl/");
     }
-//    Metoda uruchamiana przed rozpoczęciem wykonywania testów w danej klasie. Zawiera wstępną konfigurację drivera
-//    oraz otwieranie strony głównej
-
-    @AfterClass
-    public void tearDown(){
-        driver.quit();
-    }
-//    Metoda zamykająca okno przeglądarki po wszystkich testach w klasie
 
     @Test
     public void checkContactText(){
@@ -93,6 +94,27 @@ public class HomePageTests {
 //        Przy większej ilości operacji warto rozbijać na kilka linijek
 
         Assert.assertEquals(selectedValue, "M");
+    }
+
+    @Test
+    public void openMensCategory() {
+        Actions action = new Actions(driver);
+        action.moveToElement(driver.findElement(By.id("category-3"))).pause(1000).moveToElement(driver.findElement(By.id("category-4")))
+                .click().build().perform();
+        WebElement we = driver.findElement(By.cssSelector(".h1"));
+
+        Assert.assertEquals(we.getText(), "MEN");
+
+    }
+
+    @Test
+    public void openWomenCategory(){
+        Actions action = new Actions(driver);
+        action.moveToElement(driver.findElement(By.id("category-3"))).pause(1000).moveToElement(driver.findElement(By.id("category-5")))
+                .click().build().perform();
+        WebElement we = driver.findElement(By.cssSelector(".h1"));
+
+        Assert.assertEquals(we.getText(), "WOMEN");
     }
 
 }

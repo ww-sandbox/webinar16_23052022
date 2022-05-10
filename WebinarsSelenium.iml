@@ -19,6 +19,15 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
+          <root url="jar://$MODULE_DIR$/../tools/jcommander-1.82.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
           <root url="jar://$MODULE_DIR$/../tools/Selenium_3.141.59/Selenium/client-combined-3.141.59.jar!/" />
         </CLASSES>
         <JAVADOC />
@@ -67,15 +76,6 @@
       <library>
         <CLASSES>
           <root url="jar://$MODULE_DIR$/../tools/Selenium_3.141.59/Selenium/libs/okio-1.14.0.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar://$MODULE_DIR$/../tools/jcommander-1.82.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
